@@ -1,41 +1,48 @@
 #!/bin/sh
-
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
 NAME=apache-couchdb-2.0.0
+URL=http://apache.mirrors.lucidnetworks.net/couchdb/source/2.0.0/$NAME.tar.gz
+LOG=$BUILD_DIR/log
+
+echo $(which escript)
 
 download() {
-    mkdir -p $CACHE_DIR
     cd $CACHE_DIR
-    wget http://apache.mirrors.lucidnetworks.net/couchdb/source/2.0.0/$NAME.tar.gz
-    tar -xvf $NAME.tar.gz
+    echo "download"
+    wget $URL >> $LOG 2>&1
+    echo "extract"
+    tar -xvf $NAME.tar.gz >> $LOG 2>&1
     cd -
 }
 
 install() {
     cd $CACHE_DIR/$NAME
+    echo "configure"
     ./configure
+    echo "release"
     make release
+    echo "copy to build dir"
     cp ./rel/couchdb $BUILD_DIR/etc/couchdb
     cd -
 }
 
 setup() {
-    # create user
+    echo "create user"
     adduser --system \
             --no-create-home \
             --shell /bin/bash \
             --group --gecos \
             "CouchDB Administrator" couchdb
 
-    # user permissions
+    echo "set owner"
     chown -R couchdb:couchdb $BUILD_DIR/etc/couchdb/couchdb
 
-    # set permissions
+    echo "set permissions"
     find $BUILD_DIR/etc/couchdb/couchdb -type d -exec chmod 0770 {} \;
     chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
 }
 
-download
-install
-setup
+download && install && setup
+
+echo "done"
