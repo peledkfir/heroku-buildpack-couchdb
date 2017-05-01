@@ -1,0 +1,6 @@
+build-essential
+pkg-config
+erlang
+libicu-dev
+libmozjs185-dev
+libcurl4-openssl-dev

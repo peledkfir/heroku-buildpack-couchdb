@@ -1,2 +1,1 @@
-https://github.com/heroku/heroku-buildpack-erlang
-https://github.com/aindeev/heroku-buildpack-couchdb
+https://github.com/heroku/heroku-buildpack-apt
