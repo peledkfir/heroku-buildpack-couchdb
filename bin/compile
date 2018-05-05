@@ -13,35 +13,37 @@ download() {
     wget $URL
     echo "extract"
     tar -xvf $NAME.tar.gz
+    echo "$(ls)"
     cd -
+    echo "$(ls)"
 }
 
 install() {
     echo "$(ls ../)"
     cd $CACHE_DIR/$NAME
     echo "configure"
-    ./configure
+    #./configure
     echo "release"
-    make release
+    #make release
     echo "copy to build dir"
-    cp ./rel/couchdb $BUILD_DIR/etc/couchdb
+    #cp ./rel/couchdb $BUILD_DIR/etc/couchdb
     cd -
 }
 
 setup() {
     echo "create user"
-    adduser --system \
-            --no-create-home \
-            --shell /bin/bash \
-            --group --gecos \
-            "CouchDB Administrator" couchdb
+    # adduser --system \
+    #         --no-create-home \
+    #         --shell /bin/bash \
+    #         --group --gecos \
+    #         "CouchDB Administrator" couchdb
 
     echo "set owner"
-    chown -R couchdb:couchdb $BUILD_DIR/etc/couchdb/couchdb
+    # chown -R couchdb:couchdb $BUILD_DIR/etc/couchdb/couchdb
 
     echo "set permissions"
-    find $BUILD_DIR/etc/couchdb/couchdb -type d -exec chmod 0770 {} \;
-    chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
+    # find $BUILD_DIR/etc/couchdb/couchdb -type d -exec chmod 0770 {} \;
+    # chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
 }
 
 download && install && setup
