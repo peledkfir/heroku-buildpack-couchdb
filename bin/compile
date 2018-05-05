@@ -17,6 +17,7 @@ download() {
 }
 
 install() {
+    ls -la
     cd $CACHE_DIR/$NAME
     echo "configure"
     ./configure
