@@ -13,10 +13,9 @@ download() {
     wget $URL
     echo "extract"
     tar -xvf $NAME.tar.gz
-    echo "ls before cd - "
-    echo "$(ls)"
+    # Don't do this. Ruins getting into couchdb folder
     # cd -
-    echo "ls after cd - "
+    echo "Cache Dir Contents "
     echo "$(ls)"
 }
 
@@ -25,11 +24,11 @@ install() {
     # cd $CACHE_DIR/$NAME
     cd $NAME    
     echo "configure"
-    #./configure
+    ./configure
     echo "release"
-    #make release
+    make release
     echo "copy to build dir"
-    #cp ./rel/couchdb $BUILD_DIR/etc/couchdb
+    cp ./rel/couchdb $BUILD_DIR/etc/couchdb
     cd -
 }
 
