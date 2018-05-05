@@ -4,7 +4,6 @@
 NAME=apache-couchdb-2.1.1
 URL=http://apache.mirrors.lucidnetworks.net/couchdb/source/2.1.1/$NAME.tar.gz
 LOG=$BUILD_DIR/log
-
 echo $(which escript)
 
 download() {
@@ -20,11 +19,12 @@ download() {
 }
 
 install() {
-    echo "$(ls ../)"
     # cd $CACHE_DIR/$NAME
     cd $NAME    
+    echo $ENV_PATH
     echo "configure"
     ./configure
+
     echo "release"
     make release
     echo "copy to build dir"
