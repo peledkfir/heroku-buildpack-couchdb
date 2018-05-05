@@ -13,8 +13,10 @@ download() {
     wget $URL
     echo "extract"
     tar -xvf $NAME.tar.gz
+    echo "ls before cd - "
     echo "$(ls)"
     cd -
+    echo "ls after cd - "
     echo "$(ls)"
 }
 
