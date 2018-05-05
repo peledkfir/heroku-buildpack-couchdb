@@ -15,14 +15,15 @@ download() {
     tar -xvf $NAME.tar.gz
     echo "ls before cd - "
     echo "$(ls)"
-    cd -
+    # cd -
     echo "ls after cd - "
     echo "$(ls)"
 }
 
 install() {
     echo "$(ls ../)"
-    cd $CACHE_DIR/$NAME
+    # cd $CACHE_DIR/$NAME
+    cd $NAME    
     echo "configure"
     #./configure
     echo "release"
