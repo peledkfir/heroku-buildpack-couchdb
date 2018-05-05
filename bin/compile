@@ -10,9 +10,9 @@ echo $(which escript)
 download() {
     cd $CACHE_DIR
     echo "download"
-    wget $URL >> $LOG 2>&1
+    wget $URL
     echo "extract"
-    tar -xvf $NAME.tar.gz >> $LOG 2>&1
+    tar -xvf $NAME.tar.gz
     cd -
 }
 
