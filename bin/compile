@@ -26,7 +26,7 @@ export_env_dir() {
   #     :
   #   done
   # fi
-  export PATH=$PATH:/apt/opt
+  export PATH=$PATH:/apt/otp/bin
   echo $PATH
 }
 
