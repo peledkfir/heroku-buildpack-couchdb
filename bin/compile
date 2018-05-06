@@ -26,8 +26,9 @@ export_env_dir() {
   #     :
   #   done
   # fi
-  export PATH=$PATH:/apt/otp/bin
+  export PATH=$PATH:/app/otp/bin
   echo $PATH
+  echo $(which escript)
 }
 
 download() {
@@ -46,7 +47,6 @@ install() {
     # cd $CACHE_DIR/$NAME
     cd $NAME    
     echo $ENV_PATH
-    echo $(which escript)
     echo "configure"
     ./configure
 
@@ -73,6 +73,6 @@ setup() {
     # chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
 }
 
-export_env_dir && download && install && setup
-# export_env_dir
+#export_env_dir && download && install && setup
+export_env_dir
 echo "done"
