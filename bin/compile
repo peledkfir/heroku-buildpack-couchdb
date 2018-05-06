@@ -47,7 +47,7 @@ install() {
     # cd $CACHE_DIR/$NAME
     cd $NAME    
     echo "configure"
-    ./configure ---disable-shared --prefix=/app/.apt/usr
+    ./configure --disable-shared --prefix=/app/.apt/usr
 
     echo "release"
     make release
