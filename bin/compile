@@ -27,6 +27,8 @@ export_env_dir() {
   #   done
   # fi
   export PATH=$PATH:/app/otp/bin
+#   ln -s /app/.apt/usr/bin/erl /usr/bin/erl
+  ln -s /app/.apt/usr/lib/erlang/erts-7.3/bin /usr/lib/erlang/erts-7.3/bin
   echo $PATH
   echo $(which escript)
 }
