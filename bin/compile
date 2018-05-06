@@ -26,6 +26,7 @@ export_env_dir() {
       :
     done
   fi
+  export PATH=$PATH:/apt/opt
   echo $PATH
 }
 
