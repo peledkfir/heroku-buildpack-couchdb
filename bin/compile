@@ -8,7 +8,6 @@ echo $(which escript)
 
 export_env_dir() {
   echo "exporting env dir"
-  echo $PATH
   # env_dir=$1
   # whitelist_regex=${2:-''}
   # blacklist_regex=${3:-'^(GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
@@ -19,7 +18,6 @@ export_env_dir() {
   #     :
   #   done
   # fi
-  echo env_dir
   env_dir=$3
   if [ -d "$env_dir" ]; then
     for e in $(ls $env_dir); do
@@ -28,6 +26,7 @@ export_env_dir() {
       :
     done
   fi
+  echo $PATH
 }
 
 download() {
