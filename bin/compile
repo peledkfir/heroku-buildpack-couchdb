@@ -7,6 +7,7 @@ LOG=$BUILD_DIR/log
 echo $(which escript)
 
 export_env_dir() {
+  echo "exporting env dir"
   env_dir=$1
   whitelist_regex=${2:-''}
   blacklist_regex=${3:-'^(GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
