@@ -9,6 +9,8 @@ echo $(which escript)
 export_env_dir() {
   echo "exporting env dir"
   env_dir=$1
+  echo env_dir
+  echo $PATH
   whitelist_regex=${2:-''}
   blacklist_regex=${3:-'^(GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
   if [ -d "$env_dir" ]; then
