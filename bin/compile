@@ -6,6 +6,19 @@ URL=http://apache.mirrors.lucidnetworks.net/couchdb/source/2.1.1/$NAME.tar.gz
 LOG=$BUILD_DIR/log
 echo $(which escript)
 
+export_env_dir() {
+  env_dir=$1
+  whitelist_regex=${2:-''}
+  blacklist_regex=${3:-'^(GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+  if [ -d "$env_dir" ]; then
+    for e in $(ls $env_dir); do
+      echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
+      export "$e=$(cat $env_dir/$e)"
+      :
+    done
+  fi
+}
+
 download() {
     cd $CACHE_DIR
     echo "download"
@@ -22,6 +35,7 @@ install() {
     # cd $CACHE_DIR/$NAME
     cd $NAME    
     echo $ENV_PATH
+    echo $(which escript)
     echo "configure"
     ./configure
 
@@ -48,6 +62,6 @@ setup() {
     # chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
 }
 
-download && install && setup
+export_env_dir && download && install && setup
 
 echo "done"
