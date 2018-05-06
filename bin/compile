@@ -73,6 +73,6 @@ setup() {
     # chmod 0644 $BUILD_DIR/etc/couchdb/couchdb/etc/*
 }
 
-#export_env_dir && download && install && setup
-export_env_dir
+export_env_dir && download && install && setup
+#export_env_dir
 echo "done"
