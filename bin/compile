@@ -46,8 +46,8 @@ install() {
     echo "configure"
     export PATH=$PATH:/app/otp/bin
     #   ln -s /app/.apt/usr/bin/erl /usr/bin/erl
-    # ln -s /app/.apt/usr/lib/erlang/erts-7.3/bin/erlexec /usr/lib/erlang/erts-7.3/bin/erlexec
-    # touch /usr/lib/erlang/erts-7.3/bin/erlexec
+    ln -s /app/.apt/usr/lib/erlang/erts-7.3/bin/erlexec /usr/lib/erlang/erts-7.3/bin/erlexec
+    touch /usr/lib/erlang/erts-7.3/bin/erlexec
     echo $PATH
     echo $(which escript)
     ./configure
