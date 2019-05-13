@@ -31,7 +31,7 @@ export_env_dir() {
 download() {
     cd $CACHE_DIR
     echo "download"
-    wget -O $NAME $URL
+    wget -O $NAME.tar.gz $URL
     echo "extract"
     tar -xvf $NAME.tar.gz
     # Don't do this. Ruins getting into couchdb folder
