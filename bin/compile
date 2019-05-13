@@ -49,7 +49,7 @@ install() {
     # ln -s /app/.apt/usr/lib/erlang/erts-7.3/bin/erlexec /usr/lib/erlang/erts-7.3/bin/erlexec
     # touch /usr/lib/erlang/erts-7.3/bin/erlexec
     echo $PATH
-    # echo $(which escript)
+    echo $(which escript)
     ./configure
 
     echo "release"
