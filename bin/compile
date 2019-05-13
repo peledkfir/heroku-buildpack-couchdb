@@ -45,6 +45,9 @@ download() {
 }
 
 install() {
+    echo "Cache Dir Contents "
+    echo "$(ls)"
+
     # cd $CACHE_DIR/$NAME
     cd $NAME
     echo "configure"
