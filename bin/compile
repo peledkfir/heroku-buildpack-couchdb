@@ -2,7 +2,7 @@
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
 NAME=apache-couchdb-2.3.1
-URL=https://www.apache.org/dyn/closer.lua?path=/couchdb/source/2.3.1/$NAME.tar.gz
+URL=http://apache.mivzakim.net/couchdb/source/2.3.1/$NAME.tar.gz 
 LOG=$BUILD_DIR/log
 echo $(which escript)
 
