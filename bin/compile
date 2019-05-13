@@ -1,8 +1,8 @@
 #!/bin/sh
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
-NAME=apache-couchdb-2.3.1
-URL=http://apache.mivzakim.net/couchdb/source/2.3.1/$NAME.tar.gz 
+NAME=apache-couchdb-2.0.0
+URL=https://archive.apache.org/dist/couchdb/source/2.0.0/$NAME.tar.gz 
 LOG=$BUILD_DIR/log
 ERLEXEC=
 echo $BUILD_DIR
